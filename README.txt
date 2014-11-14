@@ -22,6 +22,7 @@ Slide Menu : http://tympanus.net/codrops/2013/04/17/slide-and-push-menus/
 
 Entire Block Clickable : https://moodle.org/mod/forum/discuss.php?d=218799
 
+Logo UBO
 
 Customisation using custom theme settings
 -----------------------------------------
