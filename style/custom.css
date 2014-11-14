@@ -1,0 +1,323 @@
+/* Custom CSS
+-------------------------*/
+a.logo {
+    background: url([[setting:logo]]) no-repeat 0 0;
+    display: block;
+    float: left;
+    height: 75px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.dir-rtl a.logo {
+    background: url([[setting:logo]]) no-repeat 100% 0;
+    display: block;
+    float: right;
+}
+/* Ajout UBO
+--------------------------*/
+
+
+/*Ajustement typo,à reprendre dans less/cosmubo.less */
+body {
+/*	background-image :url([[pix:theme|ballon]]);*/
+	font-size:18px;
+	padding-top:0;
+	padding-bottom:2.5em;
+}
+#page-header {
+	padding-top: 48px;
+}
+h2, h3{
+	text-align: center;
+}
+h4{
+	font-size:18px;
+}
+#course-category-listings h3, p ,
+a, a:hover, a:focus{
+	font-size:18px;
+	color: #fff;
+}
+/* COULEUR 
+*
+*
+*/
+
+/* Rose UFR médecine */
+.block {
+	background:transparent;
+}	
+#dock .dockedtitle,
+.block .content,
+.loginbox h2{
+	background-color:#9b59b6;
+}
+.block.hidden:before{
+	color:#9b59b6;
+}
+.block:before{
+	color:grey;
+}
+
+#region-main, #region-main h2, .category.loaded, .form-item,
+.loginbox .loginsub, .loginbox .guestsub, .loginbox .forgotsub, .loginbox .potentialidps,
+.coursebox .odd, .course_category_tree .category > .info, .course_category_tree .category > .content {
+	background: none repeat scroll 0 0 rgba(65, 65, 65, 1);
+	color: white;
+}
+
+/*Nuance de gris plus claire */
+
+
+#course-category-listings .listing-actions,
+#course-category-listings li[data-selected="1"] > div,
+.coursebox.clearfix.even {
+	background:rgba(75, 75, 75, 1);
+	border-radius:0;
+}
+.courses .coursebox:hover, 
+.course_category_tree .courses > .paging.paging-morelink:hover.courses .coursebox:hover, 
+.course_category_tree .courses > .paging.paging-morelink:hover,
+.section li.activity:hover,
+#course-category-listings li > div:hover 
+{
+	background:rgba(85 ,85 , 85 ,1);
+}
+
+
+/*
+*
+*
+*/
+
+/* Menu additionnel */
+
+.course_category_tree .category > .info > .categoryname{
+margin:0;
+}
+.moodle-actionmenu.show[data-enhanced] .menu {
+    background-color: #aaa;
+    box-shadow: none;
+}
+
+/* Couleur Dock */
+
+#dockeditempanel .dockeditempanel_content {
+	background-color: #aaa;
+	border: medium none;
+	box-shadow: none;
+	color: white;
+	width: 384px;
+}
+#dock .dockedtitle h2,
+#dockeditempanel .dockeditempanel_content a{
+	color:white;
+}
+
+/* Correctif page d'accueil */
+
+#page-site-index #region-main,#page-site-index #region-main h2 {
+	background:none;
+}
+#page-content .box p{
+	color:rgba(65, 65, 65, 1);
+}
+#frontpage-category-names h2{
+	color:transparent;
+}
+.headingblock.header{
+	display: none;
+}
+.form-buttons{
+	background:none;
+}
+#course-category-listings h3,
+p{
+	color:white;
+}
+.category h3{
+	border-top:1px white solid;
+}
+#page-content .box a,
+.logininfo a,.breadcrumb li a {
+	color: #53456c;
+}
+.navbar {
+	position:absolute;
+	left:0;
+}
+.navbar .btn, .navbar .btn-group {
+	margin-top:0;
+}
+.brand{
+	position:absolute;
+	right:7px;
+	top:3px;
+}
+.navbar .nav > li > a {
+	color: #000;
+	text-shadow: none;
+	padding:0px 15px;
+}
+.navbar .nav > li > a:focus, .navbar .nav > li > a:hover {
+	background-color: transparent;
+	color: #666;
+	text-decoration: none;
+}
+.block{
+	padding:15px 0 0 0;
+	margin: 1px;
+	border-radius:none;
+	-moz-border-radius:none;
+	-webkit-border-radius:none;
+	box-shadow:none;
+}
+/*Icones Font-Awesome pour les blocs */
+.block{
+	position:relative;
+}
+
+.block:before{
+	position:absolute;
+	font-family:FontAwesome;
+	left:4px;
+	font-size:3em;
+}
+#inst11:before{
+	content: "\f02d";
+	}
+#inst1:before{
+	content: "\f0c6";
+	}
+#inst4:before{
+	content: "\f0c9";
+}
+#inst5:before{
+	content:"\f085";
+}
+#inst6:before{
+	content:"\f02e";
+}
+
+/*Transparence des icônes block-hider-hide et block-iher-show*/
+/*Nommées switch_plus.png standard/pix_core/t/switch_minus.png */
+/*Dans le fichier pix_cor/t/ */
+.block .header {
+	text-shadow: none;
+	position: relative;
+	min-height: 42px;
+}
+	
+.block .header .block_action .block-hider-hide,
+.block.hidden .header .block_action  .block-hider-show {
+	display:block;
+	min-height: 42px;
+	position: absolute;
+	width: 136%;
+	left: -7px;
+	opacity:0;
+	top:-10px;
+}
+
+
+.block .content{
+	height: 100%;
+	left: 0;
+	top: 58px;
+	width: 200px;
+	position: fixed;
+}
+
+.block_course_list .content li {
+	text-align: left;
+}
+
+/*
+.block .header h2{
+	visibility:hidden;
+}
+*/
+.loginbox h2{
+	width:80%;
+}
+.loginbox h2, .loginbox .subcontent {
+    color:white;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+}
+.loginbox .loginsub, .loginbox .guestsub, .loginbox .forgotsub, .loginbox .potentialidps {
+    border-top: 1px solid #9b59b6;
+    width: 80%;
+}
+.form-label{
+	color:#ecf0f1;
+}
+.numberofcourse{
+	display: none;
+}
+h1{
+	text-align: center;
+	text-transform: uppercase;
+	padding-top: 10px;
+	border-top: 1px solid #eaeaea;
+	position:relative;
+}
+.nav li  a.dropdown-toggle{padding-left:0;}
+.navbar .nav{
+	margin:0 auto;
+        float:none;
+}
+.navbar {
+	display:table;
+}
+#page-footer p {
+    color: grey;
+    font-size: 1.5em;
+    font-variant: small-caps;
+}
+#page-footer {
+    background: none repeat scroll 0 0 black;
+    border-top: medium none;
+    height: 60px;
+    margin-top: 0;
+    padding: 0;
+}
+.coursebox{
+	border:none;
+	border-radius:none;
+}
+
+/*Media queries*/
+@media screen and (max-width: 500px){
+	.navbar-inner{
+		float: right;
+	}
+	#block-region-side-pre{
+		float:right;
+		display:block;
+	}
+	h1{
+		padding-top: 32px;
+		font-size: 30px;
+	}
+	.block .content{
+		top: 98px;
+		height: 79%;
+	}
+	.brand{
+		display:none;
+	}
+}
+@media screen and (min-width: 1300px){
+	.brand{
+		right:238px;
+	}
+}
+
+
+/* Custom CSS Settings
+-------------------------*/
+[[setting:customcss]]
