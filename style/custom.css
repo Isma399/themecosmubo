@@ -228,6 +228,7 @@ p{
 	top: 58px;
 	width: 200px;
 	position: fixed;
+	z-index: 110;
 }
 
 .block_course_list .content li {
@@ -264,6 +265,7 @@ h1{
 	padding-top: 10px;
 	border-top: 1px solid #eaeaea;
 	position:relative;
+	z-index: 100;
 }
 .nav li  a.dropdown-toggle{padding-left:0;}
 .navbar .nav{
