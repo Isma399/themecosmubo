@@ -1,27 +1,52 @@
-/* Custom CSS
--------------------------*/
-a.logo {
-    background: url([[setting:logo]]) no-repeat 0 0;
-    display: block;
-    float: left;
-    height: 75px;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+/*********************************
+ * Coming from settings.php & lib.php
+***************************** */
+/*Default Background*/
+#page-site-index, #page-login-index{
+	background-image: url([[pix:theme|defaultbackground]]);
+	background-repeat:repeat;
+	background-size:initial;
 }
 
-.dir-rtl a.logo {
-    background: url([[setting:logo]]) no-repeat 100% 0;
-    display: block;
-    float: right;
+/*Overide Background default*/
+
+
+[[setting:backgroundimage]]
+
+/*Custom color*/
+#course-category-listings h3, p ,
+a, a:hover, a:focus{
+	font-size:18px;
+	color: #fff;
 }
-/* Ajout UBO
---------------------------*/
+
+#page-content .box a,
+.logininfo a,.breadcrumb li a {
+	color: [[setting:blockiconcolor]];
+}
+.loginbox .loginsub, .loginbox .guestsub, .loginbox .forgotsub, .loginbox .potentialidps{
+    border-top: 1px solid  [[setting:blockiconcolor]];
+}
+.block{
+	background:transparent;
+}
+#dock .dockedtitle,
+.block .content{
+	background-color:[[setting:blockiconcolor]];
+}
+.block.hidden:before{
+	color:[[setting:blockiconcolor]];
+}
 
 
-/*Ajustement typo,à reprendre dans less/cosmubo.less */
+
+/*****************
+******************/
+#page-site-index, #page-login-index{
+	background-position: center center;
+	background-attachment: fixed;
+}	
 body {
-/*	background-image :url([[pix:theme|ballon]]);*/
 	font-size:18px;
 	padding-top:0;
 	padding-bottom:2.5em;
@@ -35,42 +60,21 @@ h2, h3{
 h4{
 	font-size:18px;
 }
-#course-category-listings h3, p ,
-a, a:hover, a:focus{
-	font-size:18px;
-	color: #fff;
-}
-/* COULEUR 
-*
-*
-*/
-
-/* Rose UFR médecine */
-.block {
-	background:transparent;
-}	
-#dock .dockedtitle,
-.block .content,
-.loginbox h2{
-	background-color:#9b59b6;
-}
-.block.hidden:before{
-	color:#9b59b6;
-}
 .block:before{
 	color:grey;
 }
-
 #region-main, #region-main h2, .category.loaded, .form-item,
-.loginbox .loginsub, .loginbox .guestsub, .loginbox .forgotsub, .loginbox .potentialidps,
 .coursebox .odd, .course_category_tree .category > .info, .course_category_tree .category > .content {
 	background: none repeat scroll 0 0 rgba(65, 65, 65, 1);
 	color: white;
 }
-
-/*Nuance de gris plus claire */
-
-
+#page-site-index .category.loaded,
+#page-login-index #region-main {
+    background: none repeat scroll 0 0 rgba(65, 65, 65, 0.2);
+}
+#page-site-index .category h3{
+	border:none;
+}
 #course-category-listings .listing-actions,
 #course-category-listings li[data-selected="1"] > div,
 .coursebox.clearfix.even {
@@ -85,12 +89,10 @@ a, a:hover, a:focus{
 {
 	background:rgba(85 ,85 , 85 ,1);
 }
+#page-content .box p{
+	color:rgba(65, 65, 65, 1);
+}
 
-
-/*
-*
-*
-*/
 
 /* Menu additionnel */
 
@@ -121,9 +123,6 @@ margin:0;
 #page-site-index #region-main,#page-site-index #region-main h2 {
 	background:none;
 }
-#page-content .box p{
-	color:rgba(65, 65, 65, 1);
-}
 #frontpage-category-names h2{
 	color:transparent;
 }
@@ -139,10 +138,6 @@ p{
 }
 .category h3{
 	border-top:1px white solid;
-}
-#page-content .box a,
-.logininfo a,.breadcrumb li a {
-	color: #53456c;
 }
 .navbar {
 	position:absolute;
@@ -200,7 +195,9 @@ p{
 #inst6:before{
 	content:"\f02e";
 }
-
+#inst1099:before{
+	content:"\f012";
+}
 /*Transparence des icônes block-hider-hide et block-iher-show*/
 /*Nommées switch_plus.png standard/pix_core/t/switch_minus.png */
 /*Dans le fichier pix_cor/t/ */
@@ -209,7 +206,6 @@ p{
 	position: relative;
 	min-height: 42px;
 }
-	
 .block .header .block_action .block-hider-hide,
 .block.hidden .header .block_action  .block-hider-show {
 	display:block;
@@ -220,37 +216,45 @@ p{
 	opacity:0;
 	top:-10px;
 }
-
-
 .block .content{
 	height: 100%;
 	left: 0;
+	font-size:2em;
 	top: 58px;
-	width: 200px;
+	width: 300px;
 	position: fixed;
 	z-index: 110;
+	padding:4px 2px;
 }
-
+.block .content li{
+	border-bottom: 1px solid white;
+	line-height:20px;
+}
+.block .content li ul li{
+	border-bottom:none;
+}
 .block_course_list .content li {
 	text-align: left;
 }
-
-/*
-.block .header h2{
-	visibility:hidden;
+/* Block Summary */
+.block_course_summary.block.no-header .content {
+    margin: 0 auto;
+    position: relative;
+    text-align: justify;
+    top: 3em;
+    width: 100%;
 }
-*/
 .loginbox h2{
 	width:80%;
 }
-.loginbox h2, .loginbox .subcontent {
+#region-main .loginbox h2, .loginbox .subcontent {
     color:white;
     margin: 0 auto;
     padding: 10px;
     text-align: center;
+    background:transparent;
 }
 .loginbox .loginsub, .loginbox .guestsub, .loginbox .forgotsub, .loginbox .potentialidps {
-    border-top: 1px solid #9b59b6;
     width: 80%;
 }
 .form-label{
@@ -293,6 +297,12 @@ h1{
 }
 
 /*Media queries*/
+@media screen and (max-width: 767px) {
+	body {
+		background-image: url([[pix:theme|blurredFacMobile]]);
+	}
+}
+
 @media screen and (max-width: 500px){
 	.navbar-inner{
 		float: right;
@@ -310,15 +320,17 @@ h1{
 		height: 79%;
 	}
 	.brand{
-		display:none;
+		display: none;
 	}
 }
 @media screen and (min-width: 1300px){
 	.brand{
-		right:238px;
+		right: 238px;
+	}
+	.block_course_summary.block.no-header .content {
+    		width: 60%;
 	}
 }
-
 
 /* Custom CSS Settings
 -------------------------*/

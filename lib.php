@@ -30,38 +30,26 @@
  * @return string The parsed CSS The parsed CSS.
  */
 
-/*Next function from Frederic Massart and his theme More*/
-
-function theme_cosmubo_extra_less($theme) {
-
-
-    $content = '';
-    $imageurl = $theme->setting_file_url('backgroundimage', 'backgroundimage');
-    // Sets the background image, and its settings.
-    if (!empty($imageurl)) {
-        $content .= 'body { ';
-        $content .= "background-image: url('$imageurl');";
-        if (!empty($theme->settings->backgroundfixed)) {
-            $content .= 'background-attachment: fixed;';
-        }
-        if (!empty($theme->settings->backgroundposition)) {
-            $content .= 'background-position: ' . str_replace('_', ' ', $theme->settings->backgroundposition) . ';';
-        }
-        if (!empty($theme->settings->backgroundrepeat)) {
-            $content .= 'background-repeat: ' . $theme->settings->backgroundrepeat . ';';
-        }
-        $content .= ' }';
-    }
-}
-
-
-
-
 function theme_cosmubo_process_css($css, $theme) {
 
-    // Set the background image for the logo.
-    $logo = $theme->setting_file_url('logo', 'logo');
-    $css = theme_cosmubo_set_logo($css, $logo);
+    // Set background-image
+    $content= '';       
+    $urlpicture = $backgroundimage = $theme->setting_file_url('backgroundimage','backgroundimage');
+
+    if (!empty($theme->settings->backgroundimage)) {
+	$content .= '#page-site-index, #page-login-index{';
+	$content .= "background-image: url('$urlpicture');";
+	$content .= 'background-repeat:no-repeat;';
+	$content .= 'background-size:cover;}';
+        $css = theme_cosmubo_set_body_background_image($css, $content);
+    } 
+    //Set color for Block & Icons
+    if (!empty($theme->settings->blockiconcolor)) {
+	$blockiconcolor = $theme->settings->blockiconcolor;
+    } else {
+	 $blockiconcolor ='#9b59b6';
+    }
+    $css = theme_cosmubo_set_blockiconcolor($css, $blockiconcolor);
 
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
@@ -72,46 +60,6 @@ function theme_cosmubo_process_css($css, $theme) {
     $css = theme_cosmubo_set_customcss($css, $customcss);
 
     return $css;
-}
-
-/**
- * Adds the logo to CSS.
- *
- * @param string $css The CSS.
- * @param string $logo The URL of the logo.
- * @return string The parsed CSS
- */
-function theme_cosmubo_set_logo($css, $logo) {
-    $tag = '[[setting:logo]]';
-    $replacement = $logo;
-    if (is_null($replacement)) {
-        $replacement = '';
-    }
-
-    $css = str_replace($tag, $replacement, $css);
-
-    return $css;
-}
-
-/**
- * Serves any files associated with the theme settings.
- *
- * @param stdClass $course
- * @param stdClass $cm
- * @param context $context
- * @param string $filearea
- * @param array $args
- * @param bool $forcedownload
- * @param array $options
- * @return bool
- */
-function theme_cosmubo_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
-    if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'logo') {
-        $theme = theme_config::load('cosmubo');
-        return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
-    } else {
-        send_file_not_found();
-    }
 }
 
 /**
@@ -133,6 +81,56 @@ function theme_cosmubo_set_customcss($css, $customcss) {
     return $css;
 }
 
+// Adds background-image to CSS
+
+function theme_cosmubo_set_body_background_image($css, $backgroundimage) {
+   $replacement = $backgroundimage;
+   $tag = '[[setting:backgroundimage]]';
+   if (is_null($replacement)) {
+	$replacement = '';
+   } 
+   $css = str_replace($tag, $replacement, $css);
+
+   return $css;
+}
+
+function theme_cosmubo_set_blockiconcolor($css, $blockiconcolor) {
+    $replacement =  $blockiconcolor;
+    $tag = '[[setting:blockiconcolor]]';
+	if (is_null($replacement)) {
+	    $replacement = '#9b59b6';
+}
+    $css = str_replace($tag, $replacement, $css);
+
+    return $css;
+}
+
+
+/**
+ * Serves any files associated with the theme settings.
+ *
+ * @param stdClass $course
+ * @param stdClass $cm
+ * @param context $context
+ * @param string $filearea
+ * @param array $args
+ * @param bool $forcedownload
+ * @param array $options
+ * @return bool
+ */
+function theme_cosmubo_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+    if (($context->contextlevel == CONTEXT_SYSTEM) && ($filearea === 'logo' || $filearea === 'backgroundimage')) {
+        $theme = theme_config::load('cosmubo');
+        return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
+    } else {
+        send_file_not_found();
+    }
+
+
+
+
+}
+
 /**
  * Returns an object containing HTML for the areas affected by settings.
  *
@@ -142,31 +140,24 @@ function theme_cosmubo_set_customcss($css, $customcss) {
  * @param renderer_base $output Pass in $OUTPUT.
  * @param moodle_page $page Pass in $PAGE.
  * @return stdClass An object with the following properties:
- *      - navbarclass A CSS class to use on the navbar. By default ''.
- *      - heading HTML to use for the heading. A logo if one is selected or the default heading.
  *      - footnote HTML to use as a footnote. By default ''.
  */
 function theme_cosmubo_get_html_for_settings(renderer_base $output, moodle_page $page) {
     global $CFG;
     $return = new stdClass;
 
-    $return->navbarclass = '';
-    if (!empty($page->theme->settings->invert)) {
-        $return->navbarclass .= ' navbar-inverse';
+    $return->footnote = '';
+    if (!empty($page->theme->settings->footnote)) {
+        $return->footnote = '<div class="footnote text-center">'.format_text($page->theme->settings->footnote).'</div>';
     }
-
-    if (!empty($page->theme->settings->logo)) {
-        $return->heading = html_writer::link($CFG->wwwroot, '', array('title' => get_string('home'), 'class' => 'logo'));
-    } else {
-        $return->heading = $output->page_heading();
-    }
+    $return->heading = $output->page_heading();
 
     $return->footnote = '';
     if (!empty($page->theme->settings->footnote)) {
         $return->footnote = '<div class="footnote text-center">'.format_text($page->theme->settings->footnote).'</div>';
     }
-
     return $return;
+
 }
 
 /**

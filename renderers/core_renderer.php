@@ -221,10 +221,12 @@ class theme_cosmubo_core_renderer extends theme_bootstrapbase_core_renderer {
         if (empty($skiptitle)) {
             $output = '';
             $skipdest = '';
-        } else {
-            //$output = html_writer::tag('a', get_string('skipa', 'access', $skiptitle), array('href' => '#sb-' . $bc->skipid, 'class' => 'skip-block'));
+        }  else {
+           // $output = html_writer::tag('a', get_string('skipa', 'access', $skiptitle), array('href' => '#sb-' . $bc->skipid, 'class' => 'skip-block'));
            // $skipdest = html_writer::tag('span', '', array('id' => 'sb-' . $bc->skipid, 'class' => 'skip-block-to'));
-        }
+             $skipdest = '';
+	     $output = '';
+	}
 	$output .= html_writer::start_tag('div', array('class' => 'btn btn-small btn-link')); 
 
         $output .= html_writer::start_tag('div', $bc->attributes);

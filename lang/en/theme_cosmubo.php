@@ -45,21 +45,21 @@ Website: <a href="http://www.basbrands.nl">www.basbrands.nl</a>
 <p><a href="cosmubo/README.txt">How to copy and customise this theme.</a></p>
 </div></div>';
 
-$string['configtitle'] = 'Cosmo for UBO';
+$string['blockcolor'] = 'Blocks and Block Icons Color';
+$string['blockcolordesc'] = 'Enter your color (all format). Color will be used for side-block and icons of the header.';
 
+$string['bodybackground_image'] = 'Background Image';
+$string['bodybackground_image_desc'] ='Body background Image for FrontPage and LoginPage.';
+
+$string['configtitle'] = 'Cosmo for UBO';
 $string['customcss'] = 'Custom CSS';
 $string['customcssdesc'] = 'Whatever CSS rules you add to this textarea will be reflected in every page, making for easier customization of this theme.';
 
 $string['footnote'] = 'Footnote';
 $string['footnotedesc'] = 'Whatever you add to this textarea will be displayed in the footer throughout your Moodle site.';
 
-$string['invert'] = 'Invert navbar';
-$string['invertdesc'] = 'Swaps text and background for the navbar at the top of the page between black and white.';
-
 $string['logo'] = 'Logo';
-$string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header.<br>
-If the height of your logo is more than 75px add the following CSS rule to the Custom CSS box below.<br>
-a.logo {height: 100px;} or whatever height in pixels the logo is.';
+$string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header.';
 
 $string['pluginname'] = 'Cosmo for UBO';
 

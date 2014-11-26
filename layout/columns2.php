@@ -45,15 +45,19 @@ echo $OUTPUT->doctype() ?>
            <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
            <li class="navbar-text"><?php echo $OUTPUT->login_info() ?></li>
            <?php echo $OUTPUT->blocks('side-pre');?>
-	   <a class="brand" href="http://www.univ-brest.fr/" alt="<?php echo format_string($SITE->shortname, true, array('context' => context_course::instance(SITEID)));?>">
-		<img src="<?php echo $OUTPUT->pix_url('ubo-brand','theme');?>" height="48px"/>
-	   </a>
         </ul>
     </nav>
 </header>
 
 <div id="page row">
     <header id="page-header" class="clearfix">
+	<?php
+            if (!empty($PAGE->theme->settings->logo)) {$logourl = $PAGE->theme->setting_file_url('logo', 'logo');}
+            else { $logourl = $OUTPUT->pix_url('logo', 'theme');
+        };?>
+        <a class="brand" href="http://www.univ-brest.fr/" alt="<?php echo format_string($SITE->shortname, true, array('context' => context_course::instance(SITEID)));?>">
+            <img src="<?php echo $logourl ;?>" />
+        </a>
         <?php echo $html->heading; ?>
         <div id="page-navbar" class="clearfix">
             <nav class="breadcrumb-nav"><?php echo $OUTPUT->navbar(); ?></nav>
@@ -74,16 +78,10 @@ echo $OUTPUT->doctype() ?>
         </section>
     </div>
 
- <footer id="page-footer" class="navbar-fixed-bottom">
+    <footer id="page-footer" class="navbar-fixed-bottom">
         <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
-        <div>
-           <p>Serveur de cours
-                <a title="Moodle" href="http://moodle.org/"><img src="<?php echo $OUTPUT->pix_url('moodlelogo');?>" alt="moodlelogo"  style="vertical-align:calc(-3px);"/></a>
-                maintenu par
-                <a href="http://www.univ-brest.fr" title="UBO"><img src="<?php echo $OUTPUT->pix_url('ubo-hor','theme');?>" alt="logo-UBO" style="vertical-align:calc(-15px);"/></a>
-           </p>
-        </div>
-    </footer>
+//        <?php echo $html->footnote; ?>
+     </footer>
 
     <?php echo $OUTPUT->standard_end_of_body_html() ?>
 

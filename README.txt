@@ -24,6 +24,11 @@ Entire Block Clickable : https://moodle.org/mod/forum/discuss.php?d=218799
 
 Logo UBO
 
+Credits Photo :
+---------------
+
+photo : Guy Bescond
+
 Customisation using custom theme settings
 -----------------------------------------
 
