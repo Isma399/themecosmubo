@@ -49,7 +49,7 @@ $string['blockcolor'] = 'Blocks and Block Icons Color';
 $string['blockcolordesc'] = 'Enter your color (all format). Color will be used for side-block and icons of the header.';
 
 $string['bodybackground_image'] = 'Background Image';
-$string['bodybackground_image_desc'] ='Body background Image for FrontPage and LoginPage.';
+$string['bodybackground_image_desc'] ='Body background Image for FrontPage and LoginPage. FullWidth, it will cover all the page. If you want the defaut repeat background, go in the pix directory';
 
 $string['configtitle'] = 'Cosmo for UBO';
 $string['customcss'] = 'Custom CSS';
