@@ -101,10 +101,7 @@ h4{
 .course_category_tree .category > .info > .categoryname{
 margin:0;
 }
-.moodle-actionmenu.show[data-enhanced] .menu {
-    background-color: #aaa;
-    box-shadow: none;
-}
+
 
 /* Couleur Dock */
 
@@ -182,31 +179,56 @@ p{
 	left:4px;
 	font-size:3em;
 }
-#inst11:before{
-	content: "\f02d";
-	}
-#inst1:before{
-	content: "\f0c6";
-	}
-#inst4:before{
-	content: "\f0c9";
-}
-#inst5:before{
-	content:"\f085";
-}
-#inst6:before{
-	content:"\f02e";
-}
-#inst1099:before{
-	content:"\f012";
-}
-/*Transparence des icônes block-hider-hide et block-iher-show*/
-/*Nommées switch_plus.png standard/pix_core/t/switch_minus.png */
-/*Dans le fichier pix_cor/t/ */
+.block_activity_modules:before  {content :"\f012";}
+
+.block_admin_bookmarks:before	{content :"\f02e";}
+
+.block_badges:before		{content :"\f209";}
+
+.block_blog_menu:before		{content :"\f032";}
+
+.block_blog_recent:before	{content :"\f032";}
+
+.block_blog_tags:before		{content :"\f02b";}
+
+.block_calendar_month:before	{content:"\f073";}
+
+.block_calendar_upcoming:before	{content :"\f133";}
+
+.block_checklist:before		{content :"\f00c";}
+
+.block_comments:before		{content:"\f075";}
+
+.block_completionstatus:before	{content:"\f129";}
+
+.block_community:before		{content :"\f01b";}
+
+.block_course_list:before	{content:"\f02d";}
+
+.block_glossary_random:before	{content:"\f128";}
+
+.block_mnet_hosts:before	{content:"\f0e8";}
+
+.block_navigation:before	{content:"\f0c9";}
+
+.block_recent_activity:before	{content:"\f0e7";}
+
+.block_rss_client:before	{content:"\f09e";}
+
+.block_settings:before		{content:"\f085";}
+
+.block_site_main_menu:before	{content:"\f0c6";}
+
+
+/*Transparence des icônes block-hider-hide et block-hider-show*/
 .block .header {
 	text-shadow: none;
 	position: relative;
 	min-height: 42px;
+}
+.block .header .commands{
+	position: relative;
+	margin:1em 0;
 }
 .block .header .block_action .block-hider-hide,
 .block.hidden .header .block_action  .block-hider-show {
@@ -227,6 +249,7 @@ p{
 	position: fixed;
 	z-index: 110;
 	padding:4px 2px;
+	color:white;
 }
 .block .content li{
 	border-bottom: 1px solid white;
@@ -237,6 +260,19 @@ p{
 }
 .block_course_list .content li {
 	text-align: left;
+}
+.block_adminblock .content {
+	background: none repeat scroll 0 0 green;
+	position: absolute;
+	top: -6px;
+	height: 40px;
+}
+.moodle-actionmenu.show[data-enhanced] .menu.align-tr-br {
+        background: none repeat scroll 0 0 white;
+	right: 0;
+	width: 300px;
+        box-shadow: none;
+
 }
 /* Block Summary */
 .block_course_summary.block.no-header .content {
